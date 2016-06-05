@@ -1,4 +1,4 @@
-VA Excerpt From Content [![Build Status](https://travis-ci.org/visualive/va-excerpt-from-content.svg?branch=master)](https://travis-ci.org/visualive/va-excerpt-from-content)
+VA Excerpt From Content
 ==============================
 
 Automatically create the excerpt from content.
@@ -16,7 +16,7 @@ You don't need to enter an excerpt. Plug-ins auto-create excerpt from the conten
 
 ## Installation
 
-To install VA Excerpt From Content:
+To install "VA Excerpt From Content":
 
 1. Upload the "va-excerpt-from-content" directory and all its contents to your `/wp-content/plugins/` directory.
 2. Activate the plugin through the 'Plugins' menu in WordPress.
