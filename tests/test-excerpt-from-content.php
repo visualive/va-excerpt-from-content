@@ -20,7 +20,7 @@ class VisuAlive_ExcerptFromContentTest extends WP_UnitTestCase {
 
 	}
 
-	private function create_testpostdata() {
+	private function get_sample_content() {
 
 		$content = <<<EOD
 <ins datetime="2016-06-03T17:57:12+00:00">親譲りの無鉄砲で
@@ -32,9 +32,14 @@ class VisuAlive_ExcerptFromContentTest extends WP_UnitTestCase {
 
 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
 EOD;
+		return $content;
+	}
+
+	private function create_testpostdata() {
+
 		$args    = array(
 			'post_title'   => '自動抜粋のテスト',
-			'post_content' => $content,
+			'post_content' => $this->get_sample_content(),
 			'post_status'  => 'publish',
 			'post_date'    => '2016-06-01 00:00:00',
 		);
@@ -68,24 +73,13 @@ EOD;
 
 		global $post;
 
-		$content = <<<EOD
-<ins datetime="2016-06-03T17:57:12+00:00">親譲りの無鉄砲で
-小供の時から損ばかりしている</ins>。
-
-小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事がある。
-
-<del datetime="2016-06-03T17:54:38+00:00">なぜそんな無闇をしたと聞く人があるかも知れぬ。</del>別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
-
-なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
-EOD;
-
 		$post_data = $this->create_testpostdata();
 
 		$this->go_to( get_permalink( $post_data ) );
 		$post = $post_data;
 		setup_postdata( $post );
 
-		$this->expectOutputString( wpautop( $content ) );
+		$this->expectOutputString( wpautop( $this->get_sample_content() ) );
 		the_content();
 	}
 
