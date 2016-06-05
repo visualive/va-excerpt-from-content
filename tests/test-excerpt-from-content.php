@@ -18,9 +18,13 @@ class VisuAlive_ExcerptFromContentTest extends WP_UnitTestCase {
 	function setUp() {
 		parent::setUp();
 
-		global $post, $wp_query;
-
 		$this->go_to( home_url() );
+
+	}
+
+	private function setup_testpostdata() {
+
+		global $post;
 
 		$content = <<<EOD
 <ins datetime="2016-06-03T17:57:12+00:00">親譲りの無鉄砲で
@@ -45,20 +49,36 @@ EOD;
 	}
 
 	/**
+	 * @test
 	 * [Test] excerpt from content.
 	 */
 	function test_excerpt_from_content() {
+		$this->setup_testpostdata();
 		$this->expectOutputString( '<p><ins datetime="2016-06-03T17:57:12+00:00">親譲りの無鉄砲で<br />小供の時から損ばかりしている</ins>。</p><p>小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事 &hellip; <a href="http://example.org/?p=3" class="more-link">Continue reading<span class="screen-reader-text"> "自動抜粋のテスト"</span></a></p>' );
 		the_content();
 	}
 
 	/**
+	 * @test
 	 * [Test][Filter] strip all tags.
 	 */
 	function test_excerpt_strip_all_tags() {
+		$this->setup_testpostdata();
 		add_filter( 'va_excerpt_from_content_strip_all_tags', '__return_true' );
 		$this->expectOutputString( '<p>親譲りの無鉄砲で小供の時から損ばかりしている。小学校に居る時分学校の二階から飛び降りて一週間ほど腰を抜かした事 &hellip; <a href="http://example.org/?p=4" class="more-link">Continue reading<span class="screen-reader-text"> "自動抜粋のテスト"</span></a></p>' );
 		the_content();
 	}
+
+	/**
+	 * @test
+	 * test for Singleton.
+	 */
+	public function test_for_singleton() {
+		$obj1 = VisuAlive_ExcerptFromContent::init();
+		$obj2 = VisuAlive_ExcerptFromContent::init();
+
+		$this->assertSame( $obj1, $obj2 );
+	}
+
 }
 

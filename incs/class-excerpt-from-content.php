@@ -32,13 +32,16 @@ class VisuAlive_ExcerptFromContent {
 		static $instance = false;
 
 		if ( ! $instance ) {
-			$instance = new VisuAlive_ExcerptFromContent;
+			$instance = new self;
 		}
 
 		return $instance;
 	}
 
-	public function __construct() {
+	/**
+	 * Constructor should be private for singleton.
+	 */
+	private function __construct() {
 		add_filter( 'the_content', array( &$this, 'excerpt_from_content' ) );
 	}
 
