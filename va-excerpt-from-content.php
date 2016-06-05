@@ -38,4 +38,5 @@ require_once dirname( __FILE__ ) . '/incs/class-excerpt-from-content.php';
  *
  * @since VA Excerpt From Content v1.0.0
  */
-add_action( 'plugins_loaded', [ 'VisuAlive_ExcerptFromContent', 'init' ] );
+add_action( 'plugins_loaded', array( 'VisuAlive_ExcerptFromContent', 'init' ) );
+
