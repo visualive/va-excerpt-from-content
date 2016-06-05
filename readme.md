@@ -1,4 +1,4 @@
-VA Excerpt From Content
+VA Excerpt From Content [![Build Status](https://travis-ci.org/visualive/va-excerpt-from-content.svg?branch=master)](https://travis-ci.org/visualive/va-excerpt-from-content)
 ==============================
 
 Automatically create the excerpt from content.
@@ -11,7 +11,6 @@ You don't need to enter an excerpt. Plug-ins auto-create excerpt from the conten
 
 * WordPress 4.5 or higher
 * PHP 5.6+  
-PHP 7 is not tested.
 
 ## Installation
 
