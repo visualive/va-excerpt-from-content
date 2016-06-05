@@ -25,7 +25,7 @@ To install VA Excerpt From Content:
 ### You don't need to enter an excerpt.
 ![Post Edit.](./screenshot-1.png)  
 
-### Plugin auto create excerpt from the content.
+### Plug-ins auto-create excerpt from the content.
 ![Post View.](./screenshot-2.png)  
 
 ## Changelog
