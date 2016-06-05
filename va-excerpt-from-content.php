@@ -3,7 +3,7 @@
  * Plugin Name: VA Excerpt From Content
  * Plugin URI: https://github.com/visualive/va-excerpt-from-content
  * Description: Automatically create the excerpt from content.
- * Author: KUCKLU, Natsumiine
+ * Author: KUCKLU, Natsumiine, Toro_Unit
  * Version: 1.0.0
  * Author URI: https://www.visualive.jp/
  * Text Domain: va-excerpt-from-content
