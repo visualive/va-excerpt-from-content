@@ -21,18 +21,18 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-class VisuAlive_Excerpt_From_Content {
+class VisuAlive_ExcerptFromContent {
 	/**
 	 * Get instance.
 	 *
 	 * @since VA Excerpt From Content v1.0.0
-	 * @return VisuAlive_Excerpt_From_Content
+	 * @return VisuAlive_ExcerptFromContent
 	 */
 	public static function init() {
 		static $instance = false;
 
 		if ( ! $instance ) {
-			$instance = new VisuAlive_Excerpt_From_Content;
+			$instance = new VisuAlive_ExcerptFromContent;
 		}
 
 		return $instance;

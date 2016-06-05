@@ -1,6 +1,6 @@
 <?php
 /**
- * Class SampleTest
+ * Class VisuAlive_ExcerptFromContentTest
  *
  * @package 
  */
@@ -8,7 +8,7 @@
 /**
  * Sample test case.
  */
-class SampleTest extends WP_UnitTestCase {
+class VisuAlive_ExcerptFromContentTest extends WP_UnitTestCase {
 
 	/**
 	 * A single example test.
