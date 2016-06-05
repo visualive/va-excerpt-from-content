@@ -32,12 +32,12 @@ class VisuAlive_ExcerptFromContentTest extends WP_UnitTestCase {
 
 なぜそんな無闇をしたと聞く人があるかも知れぬ。別段深い理由でもない。新築の二階から首を出していたら、同級生の一人が冗談に、いくら威張っても、そこから飛び降りる事は出来まい。弱虫やーい。と囃したからである。小使に負ぶさって帰って来た時、おやじが大きな眼をして二階ぐらいから飛び降りて腰を抜かす奴があるかと云ったから、この次は抜かさずに飛んで見せますと答えた。（青空文庫より）
 EOD;
-		$args    = [
+		$args    = array(
 			'post_title'   => '自動抜粋のテスト',
 			'post_content' => $content,
 			'post_status'  => 'publish',
 			'post_date'    => '2016-06-01 00:00:00',
-		];
+		);
 		$post_id = $this->factory->post->create( $args );
 		$post    = get_post( $post_id );
 

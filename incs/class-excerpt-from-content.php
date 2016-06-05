@@ -39,7 +39,7 @@ class VisuAlive_ExcerptFromContent {
 	}
 
 	public function __construct() {
-		add_filter( 'the_content', [ &$this, 'excerpt_from_content' ] );
+		add_filter( 'the_content', array( &$this, 'excerpt_from_content' ) );
 	}
 
 	/**
@@ -144,12 +144,12 @@ class VisuAlive_ExcerptFromContent {
 	 *
 	 * @return array
 	 */
-	protected function _strip_all_tags( $texts = [ ], $cut = 0 ) {
+	protected function _strip_all_tags( $texts = array(), $cut = 0 ) {
 		if ( ! is_array( $texts ) ) {
 			return $texts;
 		}
 
-		$clean_texts = [ '<p>' ];
+		$clean_texts = array( '<p>' );
 
 		foreach ( $texts as $key => $value ) {
 			if ( $key <= $cut ) {
