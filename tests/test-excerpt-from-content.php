@@ -17,11 +17,9 @@ class VisuAlive_ExcerptFromContentTest extends WP_UnitTestCase {
 
 	function setUp() {
 		parent::setUp();
-
 	}
 
 	private function get_sample_content() {
-
 		$content = <<<EOD
 <ins datetime="2016-06-03T17:57:12+00:00">親譲りの無鉄砲で
 小供の時から損ばかりしている</ins>。
@@ -36,7 +34,6 @@ EOD;
 	}
 
 	private function create_testpostdata() {
-
 		$args    = array(
 			'post_title'   => '自動抜粋のテスト',
 			'post_content' => $this->get_sample_content(),
@@ -55,6 +52,7 @@ EOD;
 	 */
 	function test_excerpt_from_content_for_is_home() {
 		global $post;
+
 		$post_data = $this->create_testpostdata();
 
 		$this->go_to( home_url() );
@@ -111,6 +109,5 @@ EOD;
 
 		$this->assertSame( $obj1, $obj2 );
 	}
-
 }
 
