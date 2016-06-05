@@ -3,6 +3,8 @@ VA Excerpt From Content [![Build Status](https://travis-ci.org/visualive/va-exce
 
 Automatically create the excerpt from content.
 
+[![Build Status](https://travis-ci.org/visualive/va-excerpt-from-content.svg?branch=master)](https://travis-ci.org/visualive/va-excerpt-from-content)
+
 ## Description
 
 You don't need to enter an excerpt. Plug-ins auto-create excerpt from the content.

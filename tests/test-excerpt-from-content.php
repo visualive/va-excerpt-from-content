@@ -20,7 +20,7 @@ class VisuAlive_ExcerptFromContentTest extends WP_UnitTestCase {
 
 		global $post, $wp_query;
 
-		$wp_query->is_home = true;
+		$this->go_to( home_url() );
 
 		$content = <<<EOD
 <ins datetime="2016-06-03T17:57:12+00:00">親譲りの無鉄砲で
