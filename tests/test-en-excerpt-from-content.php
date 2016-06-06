@@ -52,7 +52,7 @@ EOD;
 		$post = $post_data;
 		setup_postdata( $post );
 
-		$this->expectOutputString( '<p><ins datetime="2016-06-03T17:57:12+00:00">Lorem ipsum dolor sit amet,<br />consectetuer adipiscing elit &hellip; <a href="' . get_the_permalink() . '" class="more-link">Continue reading<span class="screen-reader-text"> "' . get_the_title() . '"</span></a></ins></p>' );
+		$this->expectOutputString( '<p><ins datetime="2016-06-03T17:57:12+00:00">Lorem ipsum dolor sit amet,<br />consectetuer adipiscing elit</ins> &hellip; <a href="' . get_the_permalink() . '" class="more-link">Continue reading<span class="screen-reader-text"> "' . get_the_title() . '"</span></a></p>' );
 		the_content();
 	}
 

@@ -88,10 +88,6 @@ class VisuAlive_ExcerptFromContent {
 			$cut            = $key;
 
 			if ( 0 >= $excerpt_length ) {
-				if ( $total_length > $excerpt_length ) {
-					$text[] = $excerpt_more;
-				}
-
 				$content[ $key ] = $texts[ $key ] = implode( '', $text );
 				break;
 			}
@@ -105,10 +101,15 @@ class VisuAlive_ExcerptFromContent {
 			$content = self::_strip_all_tags( $texts, $cut );
 		}
 
-		$content = implode( '', apply_filters( 'va_excerpt_from_content_the_content', $content ) );
+		$content = implode( '', $content );
 		$content = balanceTags( $content, true );
+		$content = preg_replace( '/<\/p>/', '', $content );
 
-		return $content;
+		if ( $total_length > $excerpt_length ) {
+			$content .= $excerpt_more;
+		}
+
+		return apply_filters( 'va_excerpt_from_content_the_content', balanceTags( $content, true ) );
 	}
 
 	/**
@@ -121,6 +122,7 @@ class VisuAlive_ExcerptFromContent {
 	 * @return array
 	 */
 	protected function _adjust_content( $content = '' ) {
+		$result  = array();
 		$content = capital_P_dangit( $content );
 		$content = wptexturize( $content );
 		$content = convert_smilies( $content );
@@ -129,12 +131,16 @@ class VisuAlive_ExcerptFromContent {
 		$content = wp_make_content_images_responsive( $content );
 		$content = strip_shortcodes( $content );
 		$content = str_replace( ']]>', ']]&gt;', $content );
-		$content = str_replace( array( "\r\n", "\r", "\n" ), "", $content );
+		$content = str_replace( array( "\r\n", "\r" ), "\n", $content );
 		$content = preg_split( '#(<[^>]+>)|(<\/[^>]+>)#s', trim( $content ), - 1, PREG_SPLIT_DELIM_CAPTURE );
 		$content = array_diff( $content, array( "\n", '' ) );
 		$content = array_values( $content );
 
-		return $content;
+		foreach( $content as $key => $value ) {
+			$result[] = str_replace( array( "\r\n", "\r", "\n" ), '', $value );
+		}
+
+		return $result;
 	}
 
 	/**
