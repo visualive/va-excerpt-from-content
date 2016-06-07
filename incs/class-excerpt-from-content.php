@@ -57,7 +57,7 @@ class VisuAlive_ExcerptFromContent {
 	public function excerpt_from_content( $content ) {
 		global $post;
 
-		if ( ! empty( $post->post_content ) && ( ( is_front_page() && is_home() ) || is_home() || is_archive() || is_search() ) ) {
+		if ( ! empty( $post->post_content ) && ! preg_match( '#<!--more-->#', $post->post_content ) && ( ( is_front_page() && is_home() ) || is_home() || is_archive() || is_search() ) ) {
 			$content = self::_create_excerpt( $post->post_content );
 		}
 
