@@ -16,13 +16,11 @@ You don't need to enter an excerpt. Plug-ins auto-create excerpt from the conten
 
 * Is the number of characters set in the "excerpt_length" filter.
 * "Continue reading" setting in the "excerpt_more" filter.
-* If there is "<!--more-->" does not create an excerpt.
+* If there is "&lt;!--more--&gt;" does not create an excerpt.
 * remove the html and "va_excerpt_from_content_strip_all_tags" filter to true.
 
-```
-// remove the html.
-add_filter( 'va_excerpt_from_content_strip_all_tags', '__return_true' );
-```
+`// remove the html.
+add_filter( 'va_excerpt_from_content_strip_all_tags', '__return_true' );`
 
 = Requires =
 * WordPress 4.5 or higher
