@@ -40,5 +40,8 @@ To install "VA Excerpt From Content":
 
 ## Changelog
 
+### 1.0.1
+* Change the readme.
+
 ### 1.0.0
 * First public release
